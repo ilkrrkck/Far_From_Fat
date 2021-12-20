@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705275987853",
+    "project_id": "far-from-fat",
+    "storage_bucket": "far-from-fat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705275987853:android:6d5aa40895cb497acd9fc4",
+        "android_client_info": {
+          "package_name": "com.ilkrrkck.farfromfat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705275987853-5h1d2oieileo9g8cbtb436ub4151bl15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzqkifu7OBO3y0ruA3fTJWReYFdeoFNdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705275987853-5h1d2oieileo9g8cbtb436ub4151bl15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
