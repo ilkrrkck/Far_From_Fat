@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
@@ -52,52 +53,6 @@ public class AnaMenu extends AppCompatActivity {
 
 
 
-
-
-
-
-    private void anaSayfaTasarim(){
-
-        /*
-        dis_linearLayout = new LinearLayout(this);
-        dis_linearLayout.setOrientation(LinearLayout.VERTICAL);
-
-
-        LinearLayout ic_linearLayout = new LinearLayout(this);
-        ic_linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout.LayoutParams ic_linearLayout_params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
-        ic_linearLayout_params.leftMargin=5;
-        ic_linearLayout_params.rightMargin=5;
-        ic_linearLayout.setLayoutParams(ic_linearLayout_params);
-
-        for(int i=0;i<2;i++)
-        {
-
-            //region Tasarım_Var
-            ImageView program_imageView = new ImageView(this);
-            LinearLayout.LayoutParams imageView_params = new LinearLayout.LayoutParams(96, 96);
-            program_imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            program_imageView.setBackgroundResource(R.drawable.common_google_signin_btn_icon_dark_normal);
-            program_imageView.setLayoutParams(imageView_params);
-
-
-            LinearLayout.LayoutParams programAdi_textView_params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            TextView programAdi_textView = new TextView(this);
-            programAdi_textView.setTextSize(19);
-            programAdi_textView.setText("PROGRAM");
-            programAdi_textView.setTypeface(Typeface.DEFAULT_BOLD);
-            programAdi_textView.setLayoutParams(programAdi_textView_params);
-            ic_linearLayout.addView(programAdi_textView);
-            dis_linearLayout.addView(program_imageView);
-            dis_linearLayout.addView(ic_linearLayout);
-
-        }
-
-         */
-    }
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,7 +88,15 @@ public class AnaMenu extends AppCompatActivity {
         adapter.setOnItemClickListener(new ProgramlarAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Programlar program, int position) {
+                EgzersizMenu exercises=new EgzersizMenu();
                 Toast.makeText(getApplicationContext(),program.getProg_Ad(),Toast.LENGTH_LONG).show();
+
+                Intent intent=new Intent(AnaMenu.this, EgzersizMenu.class); //nereden nereye gittiğimizi belirttik
+                //SAYFA GEÇİŞİ SAĞLANDI
+                intent.putExtra("secim",program.getProg_Ad()); //KEY VALUE İLE ÇALIŞIYOR
+                finish(); // geçerli aktiviteyi kapatır. Loginli işlemler için
+                startActivity(intent); // intenti başlat
+
             }
         });
     }
@@ -156,16 +119,17 @@ public class AnaMenu extends AppCompatActivity {
                             Object aa= task.getResult().getValue();
                             HashMap<String,HashMap<String, Long>> bb= new HashMap<String , HashMap<String, Long>>();
                             bb.putAll((HashMap)aa);
-                            VeriYerlestir(program,bb);
+                            EgzersizMenu egzersizMenu=new EgzersizMenu();
+                            egzersizMenu.VeriYerlestir(program,bb);
+
 
 
                         }
                     }
                 });
-
     }
 
-    private void VeriYerlestir(Programlar program,HashMap<String,HashMap<String,Long>> veri){
+   /* private void VeriYerlestir(Programlar program,HashMap<String,HashMap<String,Long>> veri){
         for (String ex_Adi:veri.keySet())
         {
             //System.out.println(ex_Adi+veri.get(ex_Adi).get("Tekrar"));
@@ -174,7 +138,7 @@ public class AnaMenu extends AppCompatActivity {
             long tekrar=veri.get(ex_Adi).get("Tekrar");
             program.exercises.add(new Egzersizler(set,tekrar,ex_Adi)); // ASIL OLAY
         }
-
+*/
         /**
          *         for (Egzersizler i : program1.exercises) {
          *             System.out.println(i.getExAd()+i.getExSet()+i.getExTekrar());
@@ -182,26 +146,7 @@ public class AnaMenu extends AppCompatActivity {
          *
          *         VERİLER ÇEKİLEBİLİYOR VE NESNELER OLUŞTURULDU
          */
-    }
-   /* private void VerileriGetir(){
-        //colRef=mFireStore.collection("Program1_Gun1").document("BenchPress").collection("Tekrar"); //COL İÇİ VERİLER
-        docRef=mFireStore.collection("Program1_Gun1").document("BenchPress"); // ŞİMDİLİK SADECE BENCHPRESS VERİLERİ collları GETİRDİ
-        docRef.get()
-                .addOnSuccessListener(this, new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(@NonNull DocumentSnapshot documentSnapshot) {
-                        if(documentSnapshot.exists()){
-                            System.out.println("VERİLER  "+documentSnapshot.getData());
-                        }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AnaMenu.this,e.getMessage(),Toast.LENGTH_LONG).show();
-                    }
-                });
-    }*/
+
 
     private void GirisYap(){
 

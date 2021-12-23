@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarFromFat">
         <activity
+            android:name=".EgzersizMenu"
+            android:exported="false" />
+        <activity
             android:name=".AnaMenu"
             android:exported="true">
             <intent-filter>
