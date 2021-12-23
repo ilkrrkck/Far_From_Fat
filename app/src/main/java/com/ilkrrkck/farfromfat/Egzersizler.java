@@ -4,11 +4,11 @@ public class Egzersizler{
     //set sayı
     //tekrar sayı
     private String exAd;
-    private int exSet;
-    private int exTekrar;
+    private long exSet;
+    private long exTekrar;
     private int exDinlenme;
 
-    public Egzersizler(int exSet, int exTekrar,String exAd){
+    public Egzersizler(long exSet, long exTekrar,String exAd){
         this.exSet=exSet;
         this.exTekrar=exTekrar;
         this.exAd=exAd;
@@ -29,10 +29,10 @@ public class Egzersizler{
     //endregion
 
     //region Getters
-    public int getExTekrar() {
+    public long getExTekrar() {
         return exTekrar;
     }
-    public int getExSet() {
+    public long getExSet() {
         return exSet;
     }
     public int getExDinlenme() {
