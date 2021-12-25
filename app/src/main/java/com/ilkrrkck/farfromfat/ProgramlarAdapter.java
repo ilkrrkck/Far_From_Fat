@@ -1,7 +1,6 @@
 package com.ilkrrkck.farfromfat;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProgramlarAdapter extends RecyclerView.Adapter<ProgramlarAdapter.ProgramlarHolder> {
-    private ArrayList<Programlar> programlarYerel;
+public class ProgramlarAdapter extends RecyclerView.Adapter<ProgramlarAdapter.ProgramlarHolder> implements Serializable {
+    private ArrayList<Programlar> programlarYerel; //localData
     private Context context;
     private OnItemClickListener listener;
 
