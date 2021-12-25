@@ -1,0 +1,32 @@
+{
+  "Program1" : {
+    "BenchPress" : {
+      "Set" : 4,
+      "Tekrar" : 10
+    },
+    "DumbbellBenchPress" : {
+      "Set" : 4,
+      "Tekrar" : 10
+    },
+    "LatPullDown" : {
+      "Set" : 3,
+      "Tekrar" : 10
+    },
+    "LatPullDownBack" : {
+      "Set" : 3,
+      "Tekrar" : 10
+    },
+    "Mekik" : {
+      "Set" : 3,
+      "Tekrar" : 25
+    },
+    "PecDeckFly" : {
+      "Set" : 3,
+      "Tekrar" : 10
+    },
+    "ShoulderPress" : {
+      "Set" : 3,
+      "Tekrar" : 10
+    }
+  }
+}
